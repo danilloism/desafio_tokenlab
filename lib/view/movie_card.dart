@@ -42,7 +42,7 @@ class MovieCard extends StatelessWidget {
                 Text(
                   'The Godfather',
                   style: GoogleFonts.sourceSansPro(
-                    color: const Color.fromARGB(225, 129, 209, 231),
+                    color: const Color.fromARGB(255, 129, 209, 231),
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
@@ -50,7 +50,7 @@ class MovieCard extends StatelessWidget {
                 Text(
                   'Clique no card para mais informações.',
                   style: GoogleFonts.sourceSansPro(
-                    color: const Color.fromARGB(225, 129, 209, 231),
+                    color: const Color.fromARGB(255, 129, 209, 231),
                     fontSize: 10,
                     fontWeight: FontWeight.w600,
                   ),
