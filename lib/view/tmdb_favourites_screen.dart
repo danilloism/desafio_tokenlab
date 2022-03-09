@@ -10,7 +10,7 @@ class TmdbFavouritesScreen extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 3, 37, 65),
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('TMDB Favourite 20'),
+        title: const Text('TMDB Top Rated'),
       ),
       body: const MoviesList(),
     );
