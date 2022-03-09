@@ -1,7 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
-
 class Movie {
   final int id;
   final String title;
@@ -19,59 +15,19 @@ class Movie {
     this.releaseDate,
   });
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'title': title,
-      'voteAverage': voteAverage,
-      'posterUrl': poster,
-      'genres': genres,
-      'releaseDate': releaseDate?.millisecondsSinceEpoch,
-    };
-  }
-
-  factory Movie.fromMap(Map<String, dynamic> map) {
+  factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
-      id: map['id'] ?? 0,
-      title: map['title'] ?? '',
-      voteAverage: map['voteAverage']?.toDouble(),
-      poster: map['posterUrl'],
-      genres: List<String>.from(map['genres']),
-      releaseDate: map['releaseDate'] != null
-          ? DateTime.fromMillisecondsSinceEpoch(map['releaseDate'])
-          : null,
+      id: json['id'] as int? ?? 0,
+      title: json['title'] as String? ?? '',
+      voteAverage: json['vote_average'] as double? ?? 0.0,
+      poster: json['poster_url'] as String? ?? '',
+      genres: List<String>.from(json['genres']),
+      releaseDate: DateTime.parse(json['release_date'] ?? '0000-00-00'),
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory Movie.fromJson(String source) => Movie.fromMap(json.decode(source));
 
   @override
   String toString() {
     return 'Movie(id: $id, title: $title, voteAverage: $voteAverage, posterUrl: $poster, genres: $genres, releaseDate: $releaseDate)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Movie &&
-        other.id == id &&
-        other.title == title &&
-        other.voteAverage == voteAverage &&
-        other.poster == poster &&
-        listEquals(other.genres, genres) &&
-        other.releaseDate == releaseDate;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        title.hashCode ^
-        voteAverage.hashCode ^
-        poster.hashCode ^
-        genres.hashCode ^
-        releaseDate.hashCode;
   }
 }
