@@ -5,28 +5,30 @@ import 'package:desafio_tokenlab/controllers/cache_manager.dart';
 import 'package:desafio_tokenlab/models/movie.dart';
 
 class DataManager {
-  // static Future<String> get dataAsString async {
-  //   final isCached = await CacheManager.isDataCached;
-  //   if (isCached) {
-  //     return CacheManager.cache;
-  //   }
-  //   final data = await ApiManager.getData;
-  //   CacheManager.cacheData(data);
-  //   return data;
-  // }
+  static Future<Set> get data async {
+    final cacheManager = CacheManager.getInstance;
 
-  // final _movies = <dynamic>[];
+    final isCached = await cacheManager.isDataCached;
+    if (isCached) {
+      return cacheManager.data;
+    }
+    final data = await ApiManager.data;
+    cacheManager.cacheCompleteFetchedData(data);
+    return ApiManager.dataAsSet;
+  }
+
+  final _movies = <dynamic>{};
 
   // //List<Movie> get movies => List.unmodifiable(_movies);
 
   // Future<List<dynamic>> get _decodeData async => jsonDecode(await dataAsString);
 
-  // Future<List<Object?>> get movies async {
-  //   var decodedData = await _decodeData;
+  Future<Set<Object?>> get movies async {
+    final dataAsSet = await data;
 
-  //   decodedData = decodedData.map((e) => Movie.fromMap(e)).toList();
+    final movies = dataAsSet.map((e) => Movie.fromJson(e)).toList();
 
-  //   _movies.addAll(decodedData);
-  //   return _movies;
-  // }
+    _movies.addAll(movies);
+    return _movies;
+  }
 }
