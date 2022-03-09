@@ -23,10 +23,10 @@ class DataManager {
 
   Future<List<Object?>> get movies async {
     var decodedData = await _decodeData;
-    var aux = decodedData.map((e) => Movie.fromMap(e)).toList();
-    //decodedData = decodedData.map((e) => Movie.fromMap(e)).toList();
 
-    _movies.addAll(aux);
+    decodedData = decodedData.map((e) => Movie.fromMap(e)).toList();
+
+    _movies.addAll(decodedData);
     return _movies;
   }
 }
