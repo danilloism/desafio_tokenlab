@@ -1,4 +1,4 @@
-import 'package:desafio_tokenlab/view/tmdb_favourites_screen.dart';
+import 'package:desafio_tokenlab/view/tmdb_top_rated_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class TmdbFavourites extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const TmdbFavouritesScreen(),
+      home: const TmdbTopRatedScreen(),
     );
   }
 }

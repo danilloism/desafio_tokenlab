@@ -1,8 +1,8 @@
 import 'package:desafio_tokenlab/view/movies_list.dart';
 import 'package:flutter/material.dart';
 
-class TmdbFavouritesScreen extends StatelessWidget {
-  const TmdbFavouritesScreen({Key? key}) : super(key: key);
+class TmdbTopRatedScreen extends StatelessWidget {
+  const TmdbTopRatedScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
