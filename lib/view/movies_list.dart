@@ -6,14 +6,13 @@ class MoviesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView.separated(
-        separatorBuilder: (_, __) => const SizedBox(
-          height: 1,
-        ),
-        itemBuilder: (_, __) => const MovieCard(),
-        itemCount: 12,
+    return ListView.separated(
+      separatorBuilder: (_, __) => const SizedBox(
+        height: 1,
       ),
+      itemBuilder: (_, __) => const MovieCard(),
+      itemCount: 12,
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
     );
   }
 }
