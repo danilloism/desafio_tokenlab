@@ -6,9 +6,13 @@ class TmdbFavouritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 37, 65),
-      body: MoviesList(),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 3, 37, 65),
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('TMDB Favourite 20'),
+      ),
+      body: const MoviesList(),
     );
   }
 }
