@@ -1,64 +1,56 @@
+import 'package:desafio_tokenlab/controllers/cache_manager.dart';
+import 'package:desafio_tokenlab/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({Key? key}) : super(key: key);
+  final Movie movie;
+  final cacheManager = CacheManager.getInstance;
+
+  MovieCard({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15),
-      child: Card(
-        shadowColor: const Color.fromARGB(228, 1, 180, 228),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        elevation: 2,
-        color: const Color.fromARGB(227, 0, 96, 122),
-        // margin: EdgeInsets.only(left: 10, right: 10),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 150,
-              width: 100,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'cache/poster.jpg',
-                  ),
-                  fit: BoxFit.fitHeight,
-                  isAntiAlias: true,
-                  filterQuality: FilterQuality.high,
-                  alignment: Alignment.centerLeft,
+    return Card(
+      shadowColor: const Color.fromARGB(228, 1, 180, 228),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: 2,
+      color: const Color.fromARGB(227, 0, 96, 122),
+      child: Stack(
+        fit: StackFit.expand,
+        // alignment: Alignment.center,
+        children: [
+          Container(
+            child: cacheManager.cachedImages[movie.id],
+          ),
+          Positioned(
+            top: 120,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(235, 91, 146, 161),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    topLeft: Radius.circular(10)),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'The Godfather',
+                width: 170,
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  movie.title,
                   style: GoogleFonts.sourceSansPro(
-                    color: const Color.fromARGB(255, 129, 209, 231),
-                    fontSize: 35,
+                    color: Colors.white,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                  maxLines: 2,
+                  softWrap: true,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
                 ),
-                Text(
-                  'Clique no card para mais informações.',
-                  style: GoogleFonts.sourceSansPro(
-                    color: const Color.fromARGB(255, 129, 209, 231),
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
