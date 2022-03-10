@@ -1,4 +1,4 @@
-import 'package:desafio_tokenlab/view/movies_list.dart';
+import 'package:desafio_tokenlab/view/movies_grid.dart';
 import 'package:flutter/material.dart';
 
 class TmdbTopRatedScreen extends StatelessWidget {
