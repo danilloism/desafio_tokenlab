@@ -1,4 +1,5 @@
-import 'package:desafio_tokenlab/controllers/cache_manager.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:desafio_tokenlab/models/cache_manager.dart';
 import 'package:desafio_tokenlab/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -20,8 +21,46 @@ class MovieCard extends StatelessWidget {
         fit: StackFit.expand,
         // alignment: Alignment.center,
         children: [
-          Container(
-            child: cacheManager.cachedImages[movie.id],
+          CachedNetworkImage(
+            imageUrl: movie.poster,
+            cacheKey: movie.id.toString(),
+            filterQuality: FilterQuality.high,
+            imageBuilder: (_, imageProvider) => DecoratedBox(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                  isAntiAlias: true,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            errorWidget: (_, url, error) => Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Icon(Icons.error),
+                if (error.toString().contains('404')) ...[
+                  const Text(
+                    'Erro 404. O recurso que você está buscando não existe... :(',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const Text(
+                    'Tente atualizar a página ou apagar o cache. Se ainda assim o problema persistir, contate o TMDB.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ] else ...[
+                  Text(error.toString(),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                ],
+              ],
+            ),
+            placeholder: (_, __) =>
+                const Center(child: CircularProgressIndicator()),
+            // alignment: Alignment.centerLeft,
+            //fit: BoxFit.cover,
           ),
           Positioned(
             top: 120,
