@@ -1,18 +1,20 @@
 class Movie {
   final int id;
   final String title;
-  final double? voteAverage;
-  final String? poster;
-  final List<String>? genres;
-  final DateTime? releaseDate;
+  final double voteAverage;
+  final String poster;
+  final List<String> genres;
+  final DateTime releaseDate;
+  final String description;
 
   Movie({
     required this.id,
     required this.title,
-    this.voteAverage,
-    this.poster,
-    this.genres,
-    this.releaseDate,
+    required this.voteAverage,
+    required this.poster,
+    required this.genres,
+    required this.releaseDate,
+    required this.description,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
@@ -23,11 +25,12 @@ class Movie {
       poster: json['poster_url'] as String? ?? '',
       genres: List<String>.from(json['genres']),
       releaseDate: DateTime.parse(json['release_date'] ?? '0000-00-00'),
+      description: json['description'] as String? ?? '',
     );
   }
 
   @override
   String toString() {
-    return 'Movie(id: $id, title: $title, voteAverage: $voteAverage, posterUrl: $poster, genres: $genres, releaseDate: $releaseDate)';
+    return 'Movie(id: $id, title: $title, voteAverage: $voteAverage, posterUrl: $poster, genres: $genres, releaseDate: $releaseDate, description: $description)';
   }
 }
