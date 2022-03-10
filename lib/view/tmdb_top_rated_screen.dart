@@ -12,7 +12,7 @@ class TmdbTopRatedScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text('TMDB Top Rated'),
       ),
-      body: const MoviesList(),
+      body: MoviesGrid(),
     );
   }
 }
