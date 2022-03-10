@@ -13,10 +13,11 @@ class CacheManager {
   //   _prefs.remove('data');
   //   _prefs.setBool('cached', false);
   // }
-  final _cachedImages = <CachedNetworkImage>{};
+  final _cachedImages = <int, CachedNetworkImage>{};
   final _ids = <int>{};
 
-  Set<CachedNetworkImage> get cachedImages => Set.unmodifiable(_cachedImages);
+  Map<int, CachedNetworkImage> get cachedImages =>
+      Map.unmodifiable(_cachedImages);
 
   Future<String> get _localDataDirectoryPath async {
     final directory = await getApplicationDocumentsDirectory();
@@ -50,19 +51,32 @@ class CacheManager {
       imageUrl: movie['poster_url'] as String,
       cacheKey: movieId.toString(),
       filterQuality: FilterQuality.high,
+      imageBuilder: (_, imageProvider) => DecoratedBox(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: imageProvider,
+            fit: BoxFit.cover,
+            isAntiAlias: true,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
       errorWidget: (_, url, error) => Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Icon(Icons.error),
-          Text(url),
-          Text(error.toString()),
+          //Text(url, style: TextStyle(fontSize: 5)),
+          Text(error.toString(),
+              style:
+                  const TextStyle(fontSize: 10, fontWeight: FontWeight.bold)),
         ],
       ),
       placeholder: (_, __) => const Center(child: CircularProgressIndicator()),
-      alignment: Alignment.centerLeft,
-      fit: BoxFit.fitHeight,
+      // alignment: Alignment.centerLeft,
+      //fit: BoxFit.cover,
     );
     _ids.add(movieId);
-    _cachedImages.add(cachedMoviePoster);
+    _cachedImages.addAll({movieId: cachedMoviePoster});
     final file = await _movieJsonFile(movieId);
     final movieJson = json.encode(movie);
 
@@ -81,18 +95,20 @@ class CacheManager {
 
   Future<bool> get isDataCached async {
     final prefsFile = await _prefsFile;
-    final prefsData = json.decode(await prefsFile.readAsString());
-    bool cached = prefsData['cached'] ?? false;
-    return cached;
+    final fileExists = await prefsFile.exists();
+    final prefsData =
+        fileExists ? json.decode(await prefsFile.readAsString()) : null;
+    // bool cached = prefsData != null ? prefsData['cached'] : false;
+    return prefsData != null ? prefsData['cached'] : false;
   }
 
-  Future<Set> get data async {
+  Future<List> get data async {
     final data = _ids.map(
       (id) async {
         final movie = await _movieJsonFile(id);
         return json.decode(await movie.readAsString());
       },
-    ).toSet();
+    ).toList();
 
     return data;
   }
