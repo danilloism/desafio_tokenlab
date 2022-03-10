@@ -16,9 +16,9 @@ class ApiManager {
     }
   }
 
-  static Future<Set> get dataAsSet async {
+  static Future<List> get dataAsList async {
     final data = await ApiManager.data;
     final dataDecoded = json.decode(data);
-    return Set.from(dataDecoded);
+    return List.from(dataDecoded);
   }
 }
