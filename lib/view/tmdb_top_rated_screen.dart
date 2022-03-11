@@ -7,7 +7,6 @@ class TmdbTopRatedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 3, 37, 65),
       appBar: AppBar(
         centerTitle: true,
         title: const Text('TMDB Top Rated'),
