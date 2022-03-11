@@ -1,5 +1,6 @@
-import 'package:desafio_tokenlab/view/tmdb_favourites_screen.dart';
+import 'package:desafio_tokenlab/view/screens/tmdb_top_rated_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const TmdbFavourites());
@@ -14,9 +15,12 @@ class TmdbFavourites extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 3, 37, 65),
+        textTheme: Theme.of(context)
+            .textTheme
+            .copyWith(bodyText2: GoogleFonts.sourceSansPro()),
       ),
-      home: const TmdbFavouritesScreen(),
+      home: const TmdbTopRatedScreen(),
     );
   }
 }
