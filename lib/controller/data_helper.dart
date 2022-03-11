@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:desafio_tokenlab/model/api_service.dart';
 import 'package:desafio_tokenlab/model/cache_manager.dart';
@@ -22,12 +23,20 @@ class DataHelper {
 
       return List.unmodifiable(_movies);
     }
-    data = await ApiService.data;
-    cacheDecoded = json.decode(data);
-    _cacheManager.writeCache(json.encode(cacheDecoded));
-    for (var movie in cacheDecoded) {
-      _movies.add(Movie.fromJson(movie));
+
+    try {
+      data = await ApiService.data;
+      cacheDecoded = json.decode(data);
+      _cacheManager.writeCache(json.encode(cacheDecoded));
+      for (var movie in cacheDecoded) {
+        _movies.add(Movie.fromJson(movie));
+      }
+    } on HttpException {
+      rethrow;
+    } on Exception {
+      rethrow;
     }
+
     return List.unmodifiable(_movies);
   }
 

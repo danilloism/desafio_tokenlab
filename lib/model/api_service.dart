@@ -9,8 +9,10 @@ class ApiService {
     try {
       final response = await get(Uri.parse(url));
       return response.body;
-    } on HttpException catch (error) {
-      return error.message;
+    } on HttpException {
+      rethrow;
+    } on Exception {
+      rethrow;
     }
   }
 
@@ -19,10 +21,10 @@ class ApiService {
       final uri = Uri.parse('$url/${id.toString()}');
       final response = await get(uri);
       return response.body;
-    } on HttpException catch (error) {
-      return error.message;
-    } on Exception catch (error) {
-      return error.toString();
+    } on HttpException {
+      rethrow;
+    } on Exception {
+      rethrow;
     }
   }
 }
