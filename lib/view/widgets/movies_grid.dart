@@ -2,7 +2,6 @@ import 'package:desafio_tokenlab/controller/data_helper.dart';
 import 'package:desafio_tokenlab/controller/error_message.dart';
 import 'package:desafio_tokenlab/view/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MoviesGrid extends StatelessWidget {
   const MoviesGrid({Key? key}) : super(key: key);

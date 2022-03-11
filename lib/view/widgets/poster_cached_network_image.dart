@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:desafio_tokenlab/controller/error_message.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class PosterCachedNetworkImage extends StatelessWidget {
   const PosterCachedNetworkImage({
