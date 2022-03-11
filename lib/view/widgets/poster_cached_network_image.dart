@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:desafio_tokenlab/controller/error_message.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -34,7 +35,7 @@ class PosterCachedNetworkImage extends StatelessWidget {
         ),
       ),
       errorWidget: (_, url, error) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(
             height: 10,
@@ -44,23 +45,11 @@ class PosterCachedNetworkImage extends StatelessWidget {
             color: Colors.white,
           ),
           if (error.toString().contains('404')) ...[
-            Text(
-              'Erro 404. Tudo indica que esse poster não existe mais no servidor... :(',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.sourceSansPro(
-                // fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+            ErrorMessage.error(404)
+          ] else if (error.toString().contains('500')) ...[
+            ErrorMessage.error(500)
           ] else ...[
-            Text(
-              error.toString(),
-              textAlign: TextAlign.center,
-              style: GoogleFonts.sourceSansPro(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+            ErrorMessage.error(0)
           ],
         ],
       ),
