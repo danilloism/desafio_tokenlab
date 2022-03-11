@@ -11,8 +11,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:desafio_tokenlab/main.dart';
 
 void main() {
-  //test('Should return', body)
-
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const TmdbFavourites());

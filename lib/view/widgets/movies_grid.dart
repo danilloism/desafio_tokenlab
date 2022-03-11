@@ -1,11 +1,9 @@
-import 'package:desafio_tokenlab/controllers/data_helper.dart';
-import 'package:desafio_tokenlab/view/movie_card.dart';
+import 'package:desafio_tokenlab/controller/data_helper.dart';
+import 'package:desafio_tokenlab/view/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
 class MoviesGrid extends StatelessWidget {
-  MoviesGrid({Key? key}) : super(key: key);
-
-  final dataHelper = DataHelper.getInstance;
+  const MoviesGrid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
