@@ -1,6 +1,7 @@
 import 'package:desafio_tokenlab/controller/data_helper.dart';
 import 'package:desafio_tokenlab/view/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MoviesGrid extends StatelessWidget {
   const MoviesGrid({Key? key}) : super(key: key);
@@ -21,7 +22,14 @@ class MoviesGrid extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
               );
             } else {
-              return Text(movies.error.toString());
+              return Text(
+                movies.error.toString(),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.sourceSansPro(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              );
             }
           } else {
             return const Center(child: CircularProgressIndicator());
