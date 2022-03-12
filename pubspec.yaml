@@ -1,5 +1,5 @@
 name: desafio_tokenlab
-description: A new Flutter project.
+description: A simple list of the TMDB top 20 rated movies.
 
 version: 1.0.0+1
 

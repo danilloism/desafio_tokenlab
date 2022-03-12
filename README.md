@@ -1,16 +1,7 @@
-# desafio_tokenlab
+# TMDB Top Rated
 
-A new Flutter project.
+A mobile aplication that lists the top 20 rated movies of TMDB. You can scroll trough the list and tap a movie that you have interest and then a screen with more information about it will open. The app will automaticly save the information cache so you can access it later anywhere without the need of any network access. You can also clean that cache in order to release space from you device and then the aplication will retrieve the information online again the next time you open it.  
 
-## Getting Started
+## About the project
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is part of a technical step for an internship application at Tokenlab.
