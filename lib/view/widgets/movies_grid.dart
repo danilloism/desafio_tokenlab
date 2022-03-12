@@ -21,15 +21,15 @@ class MoviesGrid extends StatelessWidget {
                 itemCount: movies.data!.length,
                 padding: const EdgeInsets.only(top: 10, bottom: 10),
               );
-            } else {
-              final error = movies.error.toString();
-              if (error.contains('404')) return ErrorMessage.error(400);
-              if (error.contains('500')) return ErrorMessage.error(500);
-              return ErrorMessage.error(0);
             }
-          } else {
-            return const Center(child: CircularProgressIndicator());
+
+            final error = movies.error.toString();
+            if (error.contains('404')) return ErrorMessage.error(400);
+            if (error.contains('500')) return ErrorMessage.error(500);
+            return ErrorMessage.error(0);
           }
+
+          return const Center(child: CircularProgressIndicator());
         });
   }
 }

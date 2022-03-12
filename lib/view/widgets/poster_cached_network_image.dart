@@ -33,7 +33,7 @@ class PosterCachedNetworkImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      errorWidget: (_, url, error) => Column(
+      errorWidget: (_, __, error) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(
