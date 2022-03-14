@@ -2,8 +2,21 @@ import 'package:desafio_tokenlab/controller/data_helper.dart';
 import 'package:desafio_tokenlab/view/widgets/movies_grid.dart';
 import 'package:flutter/material.dart';
 
-class TmdbTopRatedScreen extends StatelessWidget {
+class TmdbTopRatedScreen extends StatefulWidget {
   const TmdbTopRatedScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TmdbTopRatedScreen> createState() => _TmdbTopRatedScreenState();
+}
+
+class _TmdbTopRatedScreenState extends State<TmdbTopRatedScreen> {
+  MoviesGrid movies = const MoviesGrid();
+
+  void _onRefreshButtonTapped() {
+    setState(() {
+      movies = MoviesGrid();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +33,9 @@ class TmdbTopRatedScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _onRefreshButtonTapped,
             icon: const Icon(Icons.refresh_rounded),
+            tooltip: 'Refresh page.',
           )
         ],
         title: SizedBox(
@@ -32,7 +46,7 @@ class TmdbTopRatedScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: const MoviesGrid(),
+      body: movies,
     );
   }
 }
