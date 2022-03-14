@@ -18,6 +18,12 @@ class TmdbTopRatedScreen extends StatelessWidget {
           icon: Icon(Icons.cleaning_services_rounded),
           tooltip: 'Clean cache.',
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.refresh_rounded),
+          )
+        ],
         title: SizedBox(
           height: 45,
           child: Image.asset(
