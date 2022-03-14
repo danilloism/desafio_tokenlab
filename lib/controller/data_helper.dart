@@ -29,6 +29,9 @@ class DataHelper {
       cacheDecoded = json.decode(data);
       _cacheManager.writeCache(json.encode(cacheDecoded));
       for (var movie in cacheDecoded) {
+        final movieData = await ApiService.movieData(movie['id']);
+        final movieDataDecoded = json.decode(movieData);
+        movie['description'] = movieDataDecoded['overview'];
         _movies.add(Movie.fromJson(movie));
       }
     } on HttpException {
