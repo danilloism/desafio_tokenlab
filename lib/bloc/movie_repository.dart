@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_cache_interceptor_file_store/dio_cache_interceptor_file_store.dart';
-import 'package:tmdb_favorites/model/movie.dart';
+import 'package:tmdb_favorites/bloc/movie.dart';
 import 'package:tmdb_favorites/settings.dart';
 
 class MovieRepository {

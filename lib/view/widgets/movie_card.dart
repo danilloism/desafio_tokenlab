@@ -1,4 +1,4 @@
-import '../../model/movie.dart';
+import '../../bloc/movie.dart';
 import '../screens/movie_screen.dart';
 import '../widgets/poster_cached_network_image.dart';
 import 'package:flutter/material.dart';

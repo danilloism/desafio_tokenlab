@@ -1,6 +1,6 @@
-import 'package:tmdb_favorites/repository/movie_repository.dart';
+import 'package:tmdb_favorites/bloc/movie_repository.dart';
 
-import '../../model/movie.dart';
+import '../../bloc/movie.dart';
 import '../widgets/poster_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

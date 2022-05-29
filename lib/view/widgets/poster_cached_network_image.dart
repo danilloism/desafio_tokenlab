@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../controller/error_message.dart';
+import '../../bloc/error_message.dart';
 import 'package:flutter/material.dart';
 
 class PosterCachedNetworkImage extends StatelessWidget {

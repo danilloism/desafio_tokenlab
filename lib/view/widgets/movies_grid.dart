@@ -1,5 +1,5 @@
-import '../../controller/error_message.dart';
-import '../../repository/movie_repository.dart';
+import '../../bloc/error_message.dart';
+import '../../bloc/movie_repository.dart';
 import '../widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
