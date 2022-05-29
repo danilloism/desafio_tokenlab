@@ -4,4 +4,4 @@ A mobile aplication that lists the top 20 rated movies of TMDB. You can scroll t
 
 ## About the project
 
-This project is part of a technical step for an internship application at Tokenlab.
+This project was part of a technical step for an internship application at Tokenlab.
