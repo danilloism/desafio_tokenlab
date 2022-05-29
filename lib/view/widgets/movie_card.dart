@@ -14,17 +14,7 @@ class MovieCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (context) => MovieScreen(
-            title: movie.title,
-            releaseDate: movie.releaseDate,
-            description: movie.description,
-            genres: movie.genres,
-            posterUrl: movie.poster,
-            posterCacheKey: movie.id.toString(),
-            voteAverage: movie.voteAverage,
-          ),
-        ),
+        MaterialPageRoute(builder: (context) => MovieScreen(movieId: movie.id)),
       ),
       child: Card(
         shadowColor: const Color.fromARGB(228, 1, 180, 228),

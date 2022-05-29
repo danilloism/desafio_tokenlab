@@ -1,8 +1,13 @@
+import 'package:path_provider/path_provider.dart';
+import 'package:tmdb_favorites/settings.dart';
+
 import './view/screens/tmdb_top_rated_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Settings.cacheDir = await getTemporaryDirectory();
   runApp(const TmdbFavourites());
 }
 

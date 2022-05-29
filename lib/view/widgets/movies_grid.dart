@@ -1,5 +1,5 @@
-import '../../controller/data_helper.dart';
 import '../../controller/error_message.dart';
+import '../../repository/movie_repository.dart';
 import '../widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ class MoviesGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: DataHelper.movies,
+        future: MovieRepository().getAll,
         builder: (context, AsyncSnapshot<List> movies) {
           if (movies.connectionState == ConnectionState.done) {
             if (!movies.hasError) {

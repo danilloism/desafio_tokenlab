@@ -5,7 +5,7 @@ class Movie {
   final String poster;
   final List<String> genres;
   final DateTime releaseDate;
-  final String description;
+  final String? description;
 
   Movie({
     required this.id,
@@ -25,12 +25,7 @@ class Movie {
       poster: json['poster_url'] as String? ?? '',
       genres: List<String>.from(json['genres']),
       releaseDate: DateTime.parse(json['release_date'] ?? '0000-00-00'),
-      description: json['description'] as String? ?? '',
+      description: json['overview'] as String?,
     );
-  }
-
-  @override
-  String toString() {
-    return 'Movie(id: $id, title: $title, voteAverage: $voteAverage, posterUrl: $poster, genres: $genres, releaseDate: $releaseDate, description: $description)';
   }
 }

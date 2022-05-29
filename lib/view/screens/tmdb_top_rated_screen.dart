@@ -1,4 +1,3 @@
-import '../../controller/data_helper.dart';
 import '../widgets/movies_grid.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class _TmdbTopRatedScreenState extends State<TmdbTopRatedScreen> {
 
   void _onRefreshButtonTapped() {
     setState(() {
-      movies = MoviesGrid();
+      movies = const MoviesGrid();
     });
   }
 
@@ -26,11 +25,6 @@ class _TmdbTopRatedScreenState extends State<TmdbTopRatedScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        leading: const IconButton(
-          onPressed: DataHelper.eraseCache,
-          icon: Icon(Icons.cleaning_services_rounded),
-          tooltip: 'Clean cache.',
-        ),
         actions: [
           IconButton(
             onPressed: _onRefreshButtonTapped,
