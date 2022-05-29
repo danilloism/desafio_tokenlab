@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:desafio_tokenlab/model/api_service.dart';
-import 'package:desafio_tokenlab/model/cache_manager.dart';
-import 'package:desafio_tokenlab/model/movie.dart';
+import '../model/api_service.dart';
+import '../model/cache_manager.dart';
+import '../model/movie.dart';
 
 class DataHelper {
   static final _movies = <Movie>[];

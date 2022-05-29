@@ -1,5 +1,5 @@
-import 'package:desafio_tokenlab/controller/data_helper.dart';
-import 'package:desafio_tokenlab/view/widgets/movies_grid.dart';
+import '../../controller/data_helper.dart';
+import '../widgets/movies_grid.dart';
 import 'package:flutter/material.dart';
 
 class TmdbTopRatedScreen extends StatefulWidget {

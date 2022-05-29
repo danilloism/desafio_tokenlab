@@ -1,4 +1,4 @@
-import 'package:desafio_tokenlab/view/widgets/poster_cached_network_image.dart';
+import '../widgets/poster_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:desafio_tokenlab/model/api_service.dart';
+import 'api_service.dart';
 import 'package:path_provider/path_provider.dart';
 
 class CacheManager {

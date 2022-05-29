@@ -1,6 +1,6 @@
-import 'package:desafio_tokenlab/model/movie.dart';
-import 'package:desafio_tokenlab/view/screens/movie_screen.dart';
-import 'package:desafio_tokenlab/view/widgets/poster_cached_network_image.dart';
+import '../../model/movie.dart';
+import '../screens/movie_screen.dart';
+import '../widgets/poster_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

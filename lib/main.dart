@@ -1,4 +1,4 @@
-import 'package:desafio_tokenlab/view/screens/tmdb_top_rated_screen.dart';
+import './view/screens/tmdb_top_rated_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

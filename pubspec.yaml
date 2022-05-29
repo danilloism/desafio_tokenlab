@@ -1,4 +1,4 @@
-name: desafio_tokenlab
+name: tmdb_favorites
 description: A simple list of the TMDB top 20 rated movies.
 
 version: 1.0.0+1

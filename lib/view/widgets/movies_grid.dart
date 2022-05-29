@@ -1,6 +1,6 @@
-import 'package:desafio_tokenlab/controller/data_helper.dart';
-import 'package:desafio_tokenlab/controller/error_message.dart';
-import 'package:desafio_tokenlab/view/widgets/movie_card.dart';
+import '../../controller/data_helper.dart';
+import '../../controller/error_message.dart';
+import '../widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
 class MoviesGrid extends StatelessWidget {
